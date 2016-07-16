@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Welcome @title</div>
+                <div class="title">Welcome {{{ $title}}}</div>
             </div>
         </div>
     </body>

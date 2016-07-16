@@ -13,6 +13,8 @@
 
 Route::get('/', function () {
     return view('welcome');
+    
+
 });
 
 // Authentication routes...
@@ -26,4 +28,9 @@ Route::post('/register', 'Front@register');
 Route::get('/checkout', [
     'middleware' => 'auth',
     'uses' => 'Front@checkout'
+]);
+
+Route::get('/myaccount', [
+    'middleware' => 'auth',
+    'uses' => 'Front@myaccount'
 ]);

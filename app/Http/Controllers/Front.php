@@ -48,4 +48,11 @@ public function logout() {
     return Redirect::away('login');
 }
 
+public function myaccount() {
+    $id = Auth::user()->id;
+	$currentuser = User::find($id);
+	$data = array('title' => $currentuser->name);  
+   	return view('myaccount')->with($data);
+}
+
 }
