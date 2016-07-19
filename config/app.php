@@ -110,8 +110,6 @@ return [
 
     'log' => env('APP_LOG', 'single'),
 
-    'log_level' => env('APP_LOG_LEVEL', 'debug'),
-
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -157,6 +155,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+		Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class
 
     ],
 
@@ -203,6 +202,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+		'JWTAuth'   => Tymon\JWTAuthFacades\JWTAuth::class,
+		'JWTFactory' => Tymon\JWTAuthFacades\JWTFactory::class
 
     ],
 

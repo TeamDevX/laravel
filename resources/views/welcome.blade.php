@@ -16,7 +16,7 @@
                 width: 100%;
                 display: table;
                 font-weight: 100;
-                font-family: 'Lato', sans-serif;
+                font-family: 'Lato';
             }
 
             .container {
@@ -38,8 +38,15 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
+                <div class="title">ADS in APK - API</div>
+				<div>
+				Login API format - <a target="_blank" href="http://api.adsinapk.com/laravel52/public/api/v1/login?email=[]&password=[]">http://api.adsinapk.com/laravel52/public/api/v1/login?email=[]&password=[]</a>
+				</div>
+				<div>
+				Register API format - <a target="_blank" href="http://api.adsinapk.com/laravel52/public/api/v1/register?email=[]&password=[]&name[]">http://api.adsinapk.com/laravel52/public/api/v1/register?email=[]&password=[]&name[]</a>
+				</div>
+
+				</div>
         </div>
     </body>
 </html>

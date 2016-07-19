@@ -34,3 +34,11 @@ Route::get('/myaccount', [
     'middleware' => 'auth',
     'uses' => 'Front@myaccount'
 ]);
+
+//////////////////////////////////
+
+Route::get('/api/v1/login', 'Front@apilogin');
+
+Route::get('/api/v1/register', 'Front@apiregister');
+
+

@@ -7,7 +7,10 @@ use App\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Facades\Redirect;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 
 class Front extends Controller
@@ -54,5 +57,32 @@ public function myaccount() {
 	$data = array('title' => $currentuser->name);  
    	return view('myaccount')->with($data);
 }
+
+//////////////////////////////////////// API /////////////////////////////
+
+public function apilogin() {
+		if ($token = JWTAuth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')])) {
+		return Response::json(compact('token'));	
+    } else {
+        return Response::json(false, HttpResponse::HTTP_UNAUTHORIZED);
+    }
+}
+public function apiregister() {	
+    try {
+        $user = User::create(['name' => Request::get('name'),'email' => Request::get('email'), 'password' => bcrypt(Request::get('password'))]);
+				if ($token = JWTAuth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')])) {
+				return Response::json(compact('token'));	
+			} else {
+				return Response::json(false, HttpResponse::HTTP_UNAUTHORIZED);
+			}
+
+		} catch (Exception $e) {
+			return Response::json(['error' => 'User already exists.'], HttpResponse::HTTP_CONFLICT);
+    }
+	
+	
+	
+}
+
 
 }
