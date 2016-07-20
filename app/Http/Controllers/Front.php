@@ -58,6 +58,28 @@ public function myaccount() {
    	return view('myaccount')->with($data);
 }
 
+public function profile_form() {
+    $id = Auth::user()->id;    
+	$currentuser = User::find($id);
+	$data = array('title' => $currentuser->name);        
+   	return view('profile')->with($data);
+}
+public function edit_profile() {
+    $id = Auth::user()->id;
+    $user = User::findOrFail($id);
+
+    $user->name = Request::get('name');
+
+    $user->password = bcrypt(Request::get('password'));
+    
+    $user->save();
+    $data = array('title' => $user->name, 'message'=>'User has been updated!'); 
+    return view('myaccount', $data);
+   // return redirect()->intended('myaccount', $data);
+	  
+   	
+}
+
 //////////////////////////////////////// API /////////////////////////////
 
 public function apilogin() {

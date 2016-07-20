@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
+<style>
             html, body {
                 height: 100%;
             }
@@ -19,7 +12,7 @@
                 font-family: 'Lato', sans-serif;
             }
 
-            .container {
+            .myaccount {
                 text-align: center;
                 display: table-cell;
                 vertical-align: middle;
@@ -34,12 +27,14 @@
                 font-size: 96px;
             }
         </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Welcome {{{ $title}}}</div>
-            </div>
-        </div>
-    </body>
-</html>
+@extends('layouts.header')
+  
+<body>
+    
+<div class="myaccount">
+    <div class="content">
+        <div class="title">Welcome {{{ $title}}}</div>
+    </div>
+</div>
+</body>
+    

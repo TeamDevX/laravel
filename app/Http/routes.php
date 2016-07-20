@@ -34,6 +34,14 @@ Route::get('/myaccount', [
     'middleware' => 'auth',
     'uses' => 'Front@myaccount'
 ]);
+Route::get('/myaccount/edit', [
+    'middleware' => 'auth',
+    'uses' => 'Front@profile_form'
+]);
+Route::post('/myaccount', [
+    'middleware' => 'auth',
+    'uses' => 'Front@edit_profile'
+]);
 
 //////////////////////////////////
 
