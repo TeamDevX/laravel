@@ -78,11 +78,14 @@ public function apiregister() {
 
 		} catch (Exception $e) {
 			return Response::json(['error' => 'User already exists.'], HttpResponse::HTTP_CONFLICT);
-    }
-	
-	
-	
+            }
+
+}   
+
+public function apicsrf() {
+    return Response::json(csrf_token());
 }
+
 
 
 }
