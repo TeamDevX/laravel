@@ -37,8 +37,8 @@ Route::get('/myaccount', [
 
 //////////////////////////////////
 
-Route::get('/api/v1/login', 'Front@apilogin');
+Route::get('/v1/login', 'Front@apilogin');
 
-Route::get('/api/v1/register', 'Front@apiregister');
+Route::get('/v1/register', 'Front@apiregister');
 
 
