@@ -57,7 +57,6 @@ public function myaccount() {
 	$data = array('title' => $currentuser->name);  
    	return view('myaccount')->with($data);
 }
-
 public function profile_form() {
     $id = Auth::user()->id;    
 	$currentuser = User::find($id);
@@ -74,8 +73,7 @@ public function edit_profile() {
     
     $user->save();
     $data = array('title' => $user->name, 'message'=>'User has been updated!'); 
-    return view('myaccount', $data);
-   // return redirect()->intended('myaccount', $data);
+    return view('welcome', $data);
 	  
    	
 }
@@ -83,7 +81,7 @@ public function edit_profile() {
 //////////////////////////////////////// API /////////////////////////////
 
 public function apilogin() {
-		if ($token = JWTAuth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')])) {
+	if (Auth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')])) {
 		return Response::json(compact('token'));	
     } else {
         return Response::json(false, HttpResponse::HTTP_UNAUTHORIZED);
@@ -92,7 +90,7 @@ public function apilogin() {
 public function apiregister() {	
     try {
         $user = User::create(['name' => Request::get('name'),'email' => Request::get('email'), 'password' => bcrypt(Request::get('password'))]);
-				if ($token = JWTAuth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')])) {
+				if ($token = Auth::attempt(['email' => Request::get('email'), 'password' => Request::get('password')])) {
 				return Response::json(compact('token'));	
 			} else {
 				return Response::json(false, HttpResponse::HTTP_UNAUTHORIZED);
@@ -100,14 +98,29 @@ public function apiregister() {
 
 		} catch (Exception $e) {
 			return Response::json(['error' => 'User already exists.'], HttpResponse::HTTP_CONFLICT);
-            }
-
-}   
+    }
+}
 
 public function apicsrf() {
-    return Response::json(csrf_token());
+	return Response::json(csrf_token());
+}
+
+public function apilogout() {	
+	return Response::json(Auth::logout());
+}
+
+public function apiuserstatus() {
+   	return Response::json(Auth::check());
 }
 
 
+
+public function apigetapks(){
+	    $id = Auth::user()->id;
+	$currentuser = User::find($id);
+	$data = array('title' => $currentuser->name);  
+
+	return Response::json($data);
+}
 
 }

@@ -48,6 +48,12 @@ Route::post('/myaccount', [
 Route::get('/v1/login', 'Front@apilogin');
 Route::get('/v1/register', 'Front@apiregister');
 Route::get('/v1/csrf', 'Front@apicsrf');
+Route::get('/v1/logout', 'Front@apilogout');
+Route::get('/v1/apks', 'Front@apigetapks');
+Route::get('/v1/status', 'Front@apiuserstatus');
+
+
+ 
 
 Route::post('/v1/login', 'Front@apilogin');
 Route::post('/v1/register', 'Front@apiregister');
