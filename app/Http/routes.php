@@ -13,4 +13,47 @@
 
 Route::get('/', function () {
     return view('welcome');
+    
+
 });
+
+// Authentication routes...
+Route::get('auth/login', 'Front@login');
+Route::post('auth/login', 'Front@authenticate');
+Route::get('auth/logout', 'Front@logout');
+
+// Registration routes...
+Route::post('/register', 'Front@register');
+
+Route::get('/checkout', [
+    'middleware' => 'auth',
+    'uses' => 'Front@checkout'
+]);
+
+/*Route::get('/myaccount', [
+    'middleware' => 'auth',
+    'uses' => 'Front@myaccount'
+]);*/
+
+//////////////////////////////////
+
+//Route::get('/v1/login', 'Front@apilogin');
+//Route::get('/v1/register', 'Front@apiregister');
+Route::get('/v1/csrf', 'Front@apicsrf');
+Route::get('/v1/logout', 'Front@apilogout');
+Route::get('/v1/apks', 'Front@apigetapks');
+Route::get('/v1/status', 'Front@apiuserstatus');
+Route::get('/v1/upload', 'Front@apkUpload');
+/*Route::group(['middleware' => 'web'], function () {	
+   Route::post('/v1/upload', 'Front@apkUpload');
+});*/
+
+
+
+Route::post('/v1/login', 'Front@apilogin');
+Route::post('/v1/register', 'Front@apiregister');
+Route::post('/v1/upload', 'Front@apkUpload');
+Route::post('/v1/checkemail', 'Front@apiUserEmailCheck');
+
+
+
