@@ -20,7 +20,8 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .buttons_block{ padding-top: 7px;}
 .header .nav > li > a.btn{ float:left; margin-left: 10px; color:#fff; background: #2d5467; border: 1px solid #ccc; margin-bottom: 10px; transition-property: background; transition-duration: 0.6s;   transition-timing-function: linear;}
 .header .nav > li > a.btn:hover{ background: #fff; color: #333;}
-.head_txt{ font-family: 'Merienda One', cursive; font-size: 30px; padding-top: 10px;}
+.logo a{ float:left;}
+.logo span{ font-family: 'Merienda One', cursive; font-size: 30px; line-height: 72px; padding-left: 10px;}
 
 /* Dot Navigation css starts */
 .dot_navigation{ position: fixed; top:200px; right: 20px; z-index: 1;}
@@ -55,7 +56,6 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .pricing_single_block:hover{ background:rgba(255,255,255,0.5); -webkit-box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.42); -moz-box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.42); box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.42);}
 .pricing_single_block.active{ background:#fff; border:1px solid #eee; -webkit-box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.42); -moz-box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.42); box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.42);}
 .pricing_single_block p.price{ font-size: 36px; display: block; width: 50%; margin: 15px 25%; padding: 10px; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; -o-border-radius: 50%; -ms-border-radius: 50%; background:#fff; border:1px solid #ccc; transition-property: background, border-radius; transition-duration: .2s, 0.6s; transition-timing-function: linear, ease-in; }
-/*.pricing_single_block p.price:hover{ background: #eee; color:#818a91;  border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px; -ms-border-radius: 10px;}*/
 .pricing_single_block .price_btn{ display: inline-block;}
 .pricing_single_block .price_btn a{ margin-bottom: 10px; color:#fff; cursor: pointer; transition-property: background; transition-duration: 1s;   transition-timing-function: linear; }
 
@@ -109,20 +109,9 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .dot_navigation .section_lable{ display:none}
     .dot_navigation:hover .section_lable { display: inline; padding-right: 5px;}
     .dot_navigation{ top:130px;}
-    .head_txt{ padding-top: 5px;}
-}
-
-@media(max-width:320px){
-    .head_txt{ padding-top: 0px;}
 }
 
 /* Animations */
-/*.section1 h1{ -webkit-animation: fadeInDown 0.4s ease-in-out 0.4s backwards; -moz-animation: fadeInDown 1s ease-in-out 0.4s backwards; -o-animation: fadeInDown 1s ease-in-out 0.4s backwards; -ms-animation: fadeInDown 1s ease-in-out 0.4s backwards; animation: fadeInDown 1s ease-in-out 0.4s backwards; }
-.section1.animate h1, .section2.animate h1, .section3.animate h1, .section4.animate h1, .section5.animate h1, .section6.animate h1{ -webkit-animation: fadeInDown 0.6s ease-in-out 0.6s backwards; -moz-animation: fadeInDown 0.6s ease-in-out 0.6s backwards; -o-animation: fadeInDown 0.6s ease-in-out 0.6s backwards; -ms-animation: fadeInDown 0.6s ease-in-out 0.6s backwards; animation: fadeInDown 0.6s ease-in-out 0.6s backwards; }
-
-.section1 p{ -webkit-animation: fadeInLeft 0.4s ease-in-out 0.4s backwards; -moz-animation: fadeInLeft 1s ease-in-out 0.4s backwards; -o-animation: fadeInLeft 1s ease-in-out 0.4s backwards; -ms-animation: fadeInLeft 1s ease-in-out 0.4s backwards; animation: fadeInLeft 1s ease-in-out 0.4s backwards; }
-.section1.animate p, .section2.animate p, .section3.animate p, .section4.animate p, .section5.animate p, .section6.animate p, .section6.animate .panel-group{ -webkit-animation: fadeInLeft 0.8s ease-in-out 1s backwards; -moz-animation: fadeInLeft 0.8s ease-in-out 1s backwards; -o-animation: fadeInLeft 0.8s ease-in-out 1s backwards; -ms-animation: fadeInLeft 0.8s ease-in-out 1s backwards; animation: fadeInLeft 0.8s ease-in-out 1s backwards; }
-.section5.animate .pricing_block > div{ -webkit-animation: fadeInRight 1s ease-in-out 1.5s backwards; -moz-animation: fadeInRight 1s ease-in-out 1.5s backwards; -o-animation: fadeInRight 1s ease-in-out 1.5s backwards; -ms-animation: fadeInRight 1s ease-in-out 1.5s backwards; animation: fadeInRight 1s ease-in-out 1.5s backwards; }*/
 .section1.animate:before{ -webkit-animation: fadein 2s; -moz-animation: fadein 2s; -ms-animation: fadein 2s; -o-animation: fadein 2s; animation: fadein 2s; }
 
 @keyframes fadein {

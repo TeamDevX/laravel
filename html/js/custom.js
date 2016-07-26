@@ -48,3 +48,95 @@ $win.on('scroll', function () {
 
 }).scroll();
 })
+
+$(document).ready(function(){
+    // Acordion arrow js starts
+    $('.panel a').click(function(e){
+        if($(this).find('i').hasClass('fa-caret-down')){
+            $(this).find('i').removeClass('fa-caret-down');
+            $(this).find('i').addClass('fa-caret-up');
+        }
+        else{
+            $(this).find('i').addClass('fa-caret-down');
+            $(this).find('i').removeClass('fa-caret-up');
+        }
+        e.preventDefault();
+    });
+    
+    //smooth scroll js
+    $(".dot_navigation li a").on('click', function(event) {               
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+            // Store hash
+            var hash = this.hash;
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800, function(){
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+            });
+        } // End if
+    });        
+    
+    // Min-height for sections
+    $("section").css("min-height", $(window).innerHeight());
+    $(window).resize(function(){
+        $("section").css("min-height", $(window).innerHeight());    
+    });
+    
+    // scroll spy js        
+    // Cache selectors
+    var lastId,
+        topMenu = $(".dot_navigation"),
+        topMenuHeight = topMenu.outerHeight()-300,
+        lastClickedItem,
+        // All list items
+        menuItems = topMenu.find("a"),
+        // Anchors corresponding to menu items
+        scrollItems = menuItems.map(function(){
+            var item = $($(this).attr("href"));
+            if (item.length) { return item; }
+        });
+    // Bind click handler to menu items
+    // so we can get a fancy scroll animation
+    menuItems.click(function(e){
+        var href = $(this).attr("href"),
+            offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+        $('html, body').stop().animate({ 
+            scrollTop: offsetTop
+        }, 300);
+        if(lastClickedItem)
+            $(lastClickedItem).removeClass("animate");
+        $(href).addClass("animate");
+        lastClickedItem = href;
+        e.preventDefault();
+    });
+    // Bind to scroll
+    $(window).scroll(function(){
+        // Get container scroll position
+        var fromTop = $(this).scrollTop()+topMenuHeight;
+        // Get id of current scroll item
+        var cur = scrollItems.map(function(){
+            if ($(this).offset().top < fromTop)
+                return this;
+        });
+        // Get the id of the current element
+        cur = cur[cur.length-1];
+        var id = cur && cur.length ? cur[0].id : "";
+        if (lastId !== id) {
+            lastId = id;
+            // Set/remove active class
+            menuItems
+                .parent().removeClass("active")
+                .end().filter("[href='#"+id+"']").parent().addClass("active");
+            if(lastClickedItem)
+                $(lastClickedItem).removeClass("animate");
+            $('#'+id).addClass("animate");
+            lastClickedItem = '#'+id;
+        }                   
+    });
+});
