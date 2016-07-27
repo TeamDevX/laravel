@@ -113,6 +113,16 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .dot_navigation .scroll_link, .dot_navigation .menu a{ font-size: 14px;}
     .head_txt{ display: none;}
 }
+/* Nexus portrait */
+@media only screen and (min-width : 600px) and (max-width : 603px) and (orientation: portrait) {
+    .dot_navigation{ top:20%;}
+    .dot_navigation li.scroll_item{ margin-bottom: 0px; line-height: inherit;}
+    .dot_navigation .menu a{ margin-bottom: 10px; padding: 10px;}
+    .scrolling .content_block > section{padding-top: 10px;}
+    .dot_navigation .scroll_link, .dot_navigation .menu a{ font-size: 18px;}
+    .head_txt, .scroll_normal .dot_navigation .section_lable, .scrolling .dot_navigation .section_lable{ display: none;}
+    .dot_navigation:hover .section_lable{ display: inline-block;}
+}
 
 @media(max-width:480px){
     .dot_navigation .menu a{ margin-bottom: 5px; padding: 5px;}
