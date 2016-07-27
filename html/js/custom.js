@@ -50,6 +50,23 @@ $win.on('scroll', function () {
 })
 
 $(document).ready(function(){
+    var fromTop = $(this).scrollTop();
+    if (fromTop === 0) {
+        $("body").addClass("scroll_normal");
+    }
+    
+    $(window).scroll(function(){
+        var fromTop = $(this).scrollTop();
+        if (fromTop === 0) {
+            $("body").addClass("scroll_normal");
+            $("body").removeClass("scrolling");
+            $(".scroll_normal .dot_navigation li:first-child()").addClass("active");
+        }else{
+            $("body").removeClass("scroll_normal");
+            $("body").addClass("scrolling");
+        }
+    });
+    
     // Acordion arrow js starts
     $('.panel a').click(function(e){
         if($(this).find('i').hasClass('fa-caret-down')){
