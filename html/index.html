@@ -14,22 +14,31 @@
     <link rel="stylesheet" href="css/animate.css"/>
 </head>
 <body data-spy="scroll" data-target=".dot_navigation" data-offset="">
-    
+    <div class="left_border_width"></div>
+    <div class="right_border_width"></div>
+    <div class="top_border_width"></div>
+    <div class="bottom_border_width"></div>
     <!-- Header -->
-    <header class="header" itemscope itemtype="http://schema.org/Organization">
+    <!--<header class="header" itemscope itemtype="http://schema.org/Organization">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 logo"><a href="index.html" itemprop="url"><img src="images/logo.jpg" alt="Ads in APK" title="Ads in APK" itemprop="image"/></a> <span>ADS in APK</span></div>
                 <div class="col-xs-12 col-sm-6 col-md-6 head_txt">&nbsp;</div>
             </div>
         </div>
-    </header>
+    </header>-->
     
     <!-- Dot Navigation -->
     <div class="dot_navigation">
-        <div class="menu"><a class="btn btn-primary btn-lg" href="#" role="button">Sign In</a><a class="btn btn-primary btn-lg" href="#" role="button">Join now</a></div>
+        <!--<div class="menu"><a class="btn btn-primary btn-lg" href="#" role="button">Sign In</a><a class="btn btn-primary btn-lg" href="#" role="button">Join now</a></div>-->
         <ul class="list-unstyled">
             <li class="scroll_item active">
+                <a href="#scrollto_header" class="scroll_link">
+                    <span class="section_lable">Top</span>
+                    <span class="section_lable_dot fa">&nbsp;</span>
+                </a>
+            </li>
+            <li class="scroll_item">
                 <a href="#scrollto1" class="scroll_link">
                     <span class="section_lable">Section1</span>
                     <span class="section_lable_dot fa">&nbsp;</span>
@@ -70,6 +79,31 @@
     
     <!-- Content -->
     <div class="content_block">
+        <header class="header" itemscope itemtype="http://schema.org/Organization">
+            <div class="logo"><a href="index.html" itemprop="url"><img src="images/logo1.png" alt="Ads in APK" title="Ads in APK" itemprop="image"/></a> <!--<span>ADS in APK</span>--></div>
+            <div class="head_txt text-right">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Sign In</a><a class="btn btn-primary btn-lg" href="#" role="button">Join now</a>
+            </div>
+        </header>
+        <section class="header_section bg_change" id="scrollto_header" itemscope itemtype="http://schema.org/WebPage">
+            <div class="header_title col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center">
+                <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+            </div>
+        </section>
+<!--        <section class="menu_toggle_open">
+            <div class="logo text-center"><a href="#"><img src="images/logo1.png" alt="Ads in APK" title="Ads in APK" itemprop="image"/></a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Menu1</a></li>
+                    <li><a href="#">Menu2</a></li>
+                    <li><a href="#">Menu3</a></li>
+                    <li><a href="#">Menu4</a></li>
+                    <li><a href="#">Menu5</a></li>
+                    <li><a href="#">Menu6</a></li>
+                </ul>
+            </div>
+            <div class="head_txt text-right"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>
+        </section>-->
         <!-- Section 1 start here -->
         <section class="section1 bg_change" id="scrollto1" itemscope itemtype="http://schema.org/WebPage">
             <div class="container">
@@ -207,11 +241,8 @@
                 </div>
             </div>
         </section>
-    </div>
-    
-    <!-- Footer -->
+            <!-- Footer -->
 <footer class="footer">
-    <div class="container">
         <div class="footer_links" itemscope itemtype="http://schema.org/Organization">
             <ul class="list-unstyled">
                 <li>Email: <a href="mailto:support@adsinapk.com" itemprop="email">support@adsinapk.com</a></li>
@@ -221,8 +252,9 @@
                 <li><a href="#">Privacy Policy</a></li>
             </ul>
         </div>
-    </div>
+        <div class="footer_right">Copyright@2016</div>
 </footer>
+    </div>
 <!-- Custom js -->    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

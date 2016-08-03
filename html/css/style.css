@@ -7,8 +7,36 @@ a, a:hover, a:focus{ text-decoration: none;}
 img { border: 0px none; max-width: 100%; height: auto;}
 .bg_change{ border:0; height: 100%; width: 100%; margin:0; padding:0; opacity: 1;}
 
+/* New css for new html code starts */
+.left_border_width, .right_border_width, .top_border_width, .bottom_border_width{ background: #f0f0f0; position: fixed; z-index: 1; -webkit-transition: all 0.6s 0s ease; -moz-transition: all 0.6s 0s ease; -o-transition: all 0.6s 0s ease; -ms-transition: all 0.6s 0s ease; transition: all 0.6s 0s ease; }
+.left_border_width, .right_border_width{top: 0; bottom: 0; width: 40px;}
+.top_border_width, .bottom_border_width{left: 0; right: 0; height: 40px;}
+.left_border_width{ left:0}
+.right_border_width{ right:0}
+.top_border_width{ top:0}
+.bottom_border_width{ bottom:0}
+.header_title{ position: absolute; top:40%;}
+.header .logo{ float: left; margin-left: 40px;}
+.header .logo img{ max-width: 50%; padding: 3px 0;}
+.header .head_txt{ float: right; margin-right: 40px; display: inline-block; margin-top: 6px;}
+.scroll_normal .content_block .header{-webkit-animation: slideInUp 1s; -moz-animation: slideInUp 1s; -ms-animation: slideInUp 1s; -o-animation: slideInUp 1s; animation: slideInUp 1s; margin-top: -50px;}
+.scroll_normal .dot_navigation{ right:-100px; -webkit-animation: slideInLeft 1s; -moz-animation: slideInLeft 1s; -ms-animation: slideInLeft 1s; -o-animation: slideInLeft 1s; animation: slideInLeft 1s; margin-top: -50px;}
+.scrolling .dot_navigation{ display: block;  -webkit-animation: slideInRight 1s; -moz-animation: slideInRight 1s; -ms-animation: slideInRight 1s; -o-animation: slideInRight 1s; animation: slideInRight 1s;}
+.head_txt a{ padding: 5px; margin-left: 5px; font-size: 14px;}
+.scrolling .content_block .header{ display: block;  -webkit-animation: slideInDown 1s; -moz-animation: slideInDown 1s; -ms-animation: slideInDown 1s; -o-animation: slideInDown 1s; animation: slideInDown 1s;}
+
+/*.menu_toggle_open{ background: rgba(0,0,0,0.8); width: 100%; height: 100%; position: relative; display: none;}
+.menu_toggle_open .logo a{ text-align: center; margin-top: 60px; width: 100%;}
+.menu_toggle_open .menu ul{ list-style: none; display: block; width: 375px; margin: 0 auto; padding-top: 25%;}
+.menu_toggle_open .menu ul li{ float:left; margin: 0 5px; }
+.menu_toggle_open .head_txt{ float: right; margin-right: 40px; position: absolute; bottom: 40px; right: 0;}
+.menu_toggle_open.menu_toggle_active{ position: absolute; left: 0; top:0; display: block !important; -webkit-animation: slideInDown 2s; -moz-animation: slideInDown 2s; -ms-animation: slideInDown 2s; -o-animation: slideInDown 2s; animation: slideInDown 2s; }*/
+
+/* New css for new html code End */
+
 /* Header css starts */
-.header{ padding: 10px 0; margin: 0; background: #fff; /*position: fixed;*/ clear: both; width: 100%; height: auto; z-index: 2;}
+.header_section{ background:url(../images/header_bg.jpg) repeat; background-position: center center; background-size: 100%; opacity: 0.29; content: ""; width: 100%; height: 100%; display: block; position: relative;}
+.header{ padding: 0px; margin:0; position: fixed; top:0; z-index: 1; left:0%; width:100%;}
 .header .navbar-default{ background: none; border: none; float: right;}
 .header .nav > li > a{ padding:10px;}
 .header .nav > li > a:hover{ color:#337ab7;}
@@ -24,7 +52,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .logo span{ font-family: 'Merienda One', cursive; font-size: 30px; line-height: 72px; padding-left: 10px;}
 
 /* Dot Navigation css starts */
-.dot_navigation{ position: fixed; top:20%; right: 20px; z-index: 1;}
+.dot_navigation{ position: fixed; top:20%; right: 10px; z-index: 1;}
 .dot_navigation li.scroll_item{ margin-bottom: 5px;}
 .scroll_link {display: inline-block; }
 .dot_navigation .scroll_link { width: 100%; text-align: right; color: #818a91; }
@@ -41,7 +69,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .dot_navigation .menu a{ width: 60%; float: right; margin-bottom: 10px; padding: 10px 5px;}
 
 /* Content css starts */
-.content_block{ position: relative;/* padding-top: 102px;*/}
+.content_block{ position: relative; padding: 40px; /* padding-top: 102px;*/}
 .section1{ background: rgba(255,255,255,0.5); position: relative;}
 .section1:before{ background: url(../images/section_bg1.jpg) repeat; background-position: center center; background-size: 100%; opacity: 0.29; content: ""; width: 100%; height: 100%; display: block; position: absolute; left: 0; top:0;}
 .section2{ background: rgba(193,193,193,0.1);}
@@ -68,8 +96,12 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .faq_block .panel.panel-default a:hover{ background: rgba(241,241,241,0.7); display: block; border: none; border-color: transparent; }
 
 /* Footer css starts */
-.footer{ background: rgba(204, 204, 204, 0.3); padding: 10px;}
+.footer{ /*background: rgba(204, 204, 204, 0.3);*/ padding: 0 0 7px 0; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1; font-size: 14px;}
+.footer_links{ float:left; margin-left: 40px;}
+.footer_right{ float:right; margin-right: 40px;}
 .footer ul li { float:left; margin-right:10px; color:#333; }
+.scroll_normal .footer{ -webkit-animation: slideInDown 1s; -moz-animation: slideInDown 1s; -ms-animation: slideInDown 1s; -o-animation: slideInDown 1s; animation: slideInDown 1s; margin-bottom: -30px;}
+.scrolling .footer{ display: block;  -webkit-animation: slideInUp 1s; -moz-animation: slideInUp 1s; -ms-animation: slideInUp 1s; -o-animation: slideInUp 1s; animation: slideInUp 1s;}
 
 /* Responsive css starts */
 @media(min-width:768px) and (max-width:1200px){

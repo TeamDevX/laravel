@@ -49,7 +49,7 @@ $win.on('scroll', function () {
 }).scroll();
 })
 
-$(document).ready(function(){
+$(document).ready(function(){    
     var fromTop = $(this).scrollTop();
     if (fromTop === 0) {
         $("body").addClass("scroll_normal");
@@ -100,16 +100,16 @@ $(document).ready(function(){
     });        
     
     // Min-height for sections
-    $("section").css("min-height", $(window).innerHeight());
+    $("section").css("min-height", $(window).innerHeight()-70);
     $(window).resize(function(){
-        $("section").css("min-height", $(window).innerHeight());    
+        $("section").css("min-height", $(window).innerHeight()-70);    
     });
     
     // scroll spy js        
     // Cache selectors
     var lastId,
         topMenu = $(".dot_navigation"),
-        topMenuHeight = topMenu.outerHeight()-300,
+        topMenuHeight = topMenu.outerHeight()-180,
         lastClickedItem,
         // All list items
         menuItems = topMenu.find("a"),
