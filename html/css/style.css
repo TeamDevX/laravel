@@ -1,7 +1,7 @@
 /* Global css starts */
 body{ padding:0; margin:0; font-family: 'Open Sans', sans-serif; line-height: 1.6; font-size: 16px; position:relative; height:100%; background:#fff; color:#333;}
 html{ width: 100%; height: 100%; padding: 0; margin: 0;}
-a, a:hover, a:focus{ text-decoration: none;}
+a, a:hover, a:focus{ text-decoration: none; outline: none !important;}
 .clear{ clear:both;}
 *{ padding:0; margin:0; outline: none;}
 img { border: 0px none; max-width: 100%; height: auto;}
@@ -16,6 +16,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .top_border_width{ top:0}
 .bottom_border_width{ bottom:0}
 .header_title{ position: absolute; top:40%;}
+.scroll_normal .header_title{ position: absolute; top:35%;}
 .header .logo{ float: left; margin-left: 40px;}
 .header .logo img{ max-width: 50%; padding: 3px 0;}
 .header .head_txt{ float: right; margin-right: 40px; display: inline-block; margin-top: 6px;}
@@ -103,6 +104,11 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .scroll_normal .footer{ -webkit-animation: slideInDown 1s; -moz-animation: slideInDown 1s; -ms-animation: slideInDown 1s; -o-animation: slideInDown 1s; animation: slideInDown 1s; margin-bottom: -30px;}
 .scrolling .footer{ display: block;  -webkit-animation: slideInUp 1s; -moz-animation: slideInUp 1s; -ms-animation: slideInUp 1s; -o-animation: slideInUp 1s; animation: slideInUp 1s;}
 
+/* Scroll down arrow css */
+.scroll_down{ text-align: center; font-size: 26px; position: fixed; bottom: 35px; left: 0; width: 100%;}
+.scroll_down a{ display: inline-block;}
+.scroll_down i{ font-size: 50px; line-height: 40px; display: block;}
+
 /* Responsive css starts */
 @media(min-width:768px) and (max-width:1200px){
     .buttons_block li a{ padding: 10px;}
@@ -116,6 +122,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .header .navbar-header{ float:right;}
     .header .navbar-nav{ float:inherit;}
     .header .nav-main-collapse.in { width: 100%; overflow: hidden; overflow-y: hidden; overflow-x: hidden; display: block !important; }
+    .header_title {top: 30% !important;}
 }
 
 @media (min-width:768px) and (max-width:991px){
@@ -124,6 +131,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .header .navbar-nav > li{ margin-top: 5px;}
     .header .navbar{ margin-bottom: 0;}
     .header .nav > li > a.btn:last-child{ margin-left: 0;}
+    .header_title {top: 40% !important;}
 }
 
 @media(max-width:767px){
@@ -141,6 +149,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .scrolling .content_block .header, .header{ background: #f0f0f0;}
     .header .logo{ margin-left: 10px;}
     .header .head_txt{ margin-right: 10px;}  
+    .dot_navigation .section_lable, .dot_navigation:hover .section_lable{ display: none !important;}
 }
 @media(min-width:481px) and (max-width:767px){
     .footer{ position: absolute; bottom:45px;}
@@ -150,13 +159,17 @@ img { border: 0px none; max-width: 100%; height: auto;}
 }
 
 @media(min-width:481px) and (max-width:640px){
-    .dot_navigation{ top:10%;}
-    .dot_navigation li.scroll_item{ margin-bottom: 0; line-height: 18px;}
+    .dot_navigation{ top:12%;}
+    .dot_navigation li.scroll_item{ margin-bottom: 0;}
     .dot_navigation .menu a{ margin-bottom: 5px; padding: 10px 7px;}
     .scrolling .content_block > section{padding-top: 70px;}
     .dot_navigation .scroll_link, .dot_navigation .menu a{ font-size: 14px;}
     .head_txt{ display: none;}
+/*    .header_title {top: 20%;}*/
+    .footer{ bottom:0; position: inherit;}
+    .content_block{ padding-bottom: 120px;}
 }
+
 /* Nexus portrait */
 @media only screen and (min-width : 600px) and (max-width : 603px) and (orientation: portrait) {
     .dot_navigation{ top:20%;}
@@ -166,6 +179,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .dot_navigation .scroll_link, .dot_navigation .menu a{ font-size: 18px;}
     .head_txt, .scroll_normal .dot_navigation .section_lable, .scrolling .dot_navigation .section_lable{ display: none;}
     .dot_navigation:hover .section_lable{ display: inline-block;}
+    .header_title {top: 35%;}
 }
 
 @media(max-width:480px){
@@ -177,7 +191,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .scrolling .content_block > section{padding-top: 25px;}
     .scroll_normal > .content_block > section{padding-top: 0px;}
     .head_txt{ display: none;}
-    .header_title{ top:22%;}
+    .header_title{ top:20% !important;}
     .left_border_width, .right_border_width{ width: 10px;}
     .top_border_width, .bottom_border_width{ height: 10px;}
     .content_block{ padding: 10px;}
@@ -191,8 +205,10 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .footer ul { text-align: center; padding-top: 5px;}
     .footer ul li{ width: 100%;}
     .dot_navigation .section_lable, .dot_navigation:hover .section_lable{ display: none !important;}
-    .dot_navigation .scroll_link .section_lable_dot{ font-size: 12px;}
-    .scroll_normal .dot_navigation{ right:-3%;}
+    .scroll_normal .dot_navigation{ right:-5%;}
+}
+@media(max-width:360px){
+    .header_title { top: 30%;}
 }
 @media(max-width:320px){
     .dot_navigation{ top:20%;}
@@ -202,7 +218,8 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .scrolling .content_block > section{padding-top: 20px;}
     .scroll_normal .dot_navigation .section_lable{ display:none;}
     .head_txt{ display: block;}
-    .header_title{ top:25%;}
+    .header_title{ top:22% !important;}
+    .scroll_normal .header_title{ top:22% !important;}
 }
 
 /* Animations */
