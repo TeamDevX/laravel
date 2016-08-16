@@ -20,7 +20,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .header .logo img{ max-width: 50%; padding: 3px 0;}
 .header .head_txt{ float: right; margin-right: 40px; display: inline-block; margin-top: 6px;}
 .scroll_normal .content_block .header{-webkit-animation: slideInUp 1s; -moz-animation: slideInUp 1s; -ms-animation: slideInUp 1s; -o-animation: slideInUp 1s; animation: slideInUp 1s; margin-top: -50px;}
-.scroll_normal .dot_navigation{ right:-100px; -webkit-animation: slideInLeft 1s; -moz-animation: slideInLeft 1s; -ms-animation: slideInLeft 1s; -o-animation: slideInLeft 1s; animation: slideInLeft 1s; margin-top: -50px;}
+.scroll_normal .dot_navigation{ right:-120px; -webkit-animation: slideInLeft 1s; -moz-animation: slideInLeft 1s; -ms-animation: slideInLeft 1s; -o-animation: slideInLeft 1s; animation: slideInLeft 1s; /*margin-top: -50px;*/}
 .scrolling .dot_navigation{ display: block;  -webkit-animation: slideInRight 1s; -moz-animation: slideInRight 1s; -ms-animation: slideInRight 1s; -o-animation: slideInRight 1s; animation: slideInRight 1s;}
 .head_txt a{ padding: 5px; margin-left: 5px; font-size: 14px;}
 .scrolling .content_block .header{ display: block;  -webkit-animation: slideInDown 1s; -moz-animation: slideInDown 1s; -ms-animation: slideInDown 1s; -o-animation: slideInDown 1s; animation: slideInDown 1s;}
@@ -106,6 +106,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
 /* Responsive css starts */
 @media(min-width:768px) and (max-width:1200px){
     .buttons_block li a{ padding: 10px;}
+    .container{ width:inherit;}
 }
 
 @media(max-width:991px){
@@ -135,6 +136,17 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .header .menu ul{ float:right;}
     .header .menu ul li{ float:right; margin-bottom: 5px;}
     .pricing_single_block{ min-height: 300px;}
+    .footer_right{ float:left; width: 100%; text-align: center; margin: 0; font-size: 12px;}
+    .scroll_normal .footer{ margin-bottom: -50px;}
+    .scrolling .content_block .header, .header{ background: #f0f0f0;}
+    .header .logo{ margin-left: 10px;}
+    .header .head_txt{ margin-right: 10px;}  
+}
+@media(min-width:481px) and (max-width:767px){
+    .footer{ position: absolute; bottom:45px;}
+    .footer_links{ float:inherit; margin-left: 0;}
+    .footer ul li.line{ display: none;}
+    .footer ul li{ width:100%; text-align: center;}
 }
 
 @media(min-width:481px) and (max-width:640px){
@@ -159,22 +171,38 @@ img { border: 0px none; max-width: 100%; height: auto;}
 @media(max-width:480px){
     .dot_navigation .menu a{ margin-bottom: 5px; padding: 5px;}
     /*.dot_navigation li.scroll_item{ margin-bottom: 10px;}*/
-    .dot_navigation{ top:15%;}
+    .dot_navigation{ top:15%; right:12px;}
     .scrollposition0 .content_block > section{ padding-top: 0px;}
     .dot_navigation li.scroll_item{ margin-bottom: 0;}
-    .scrolling .content_block > section{padding-top: 50px;}
+    .scrolling .content_block > section{padding-top: 25px;}
     .scroll_normal > .content_block > section{padding-top: 0px;}
     .head_txt{ display: none;}
-    
+    .header_title{ top:22%;}
+    .left_border_width, .right_border_width{ width: 10px;}
+    .top_border_width, .bottom_border_width{ height: 10px;}
+    .content_block{ padding: 10px;}
+    .footer{ position: inherit; bottom:0px;}
+    .scrolling .content_block .header, .header{ background: #f0f0f0;}
+    .header .logo{ margin-left: 10px;}
+    .header .head_txt{ margin-right: 10px;}
+    .footer_right{ float:inherit; text-align: center; margin: 0;}
+    .line{ display: none;}
+    .footer_links{ margin-left: 0;}
+    .footer ul { text-align: center; padding-top: 5px;}
+    .footer ul li{ width: 100%;}
+    .dot_navigation .section_lable, .dot_navigation:hover .section_lable{ display: none !important;}
+    .dot_navigation .scroll_link .section_lable_dot{ font-size: 12px;}
+    .scroll_normal .dot_navigation{ right:-3%;}
 }
 @media(max-width:320px){
     .dot_navigation{ top:20%;}
     .dot_navigation .section_lable{ display:none;}
     .dot_navigation:hover .section_lable { display: inline; padding-right: 5px;}
     .scroll_normal .dot_navigation .menu a{ width:auto; margin-left: 5px;}
-    .scrolling .content_block > section{padding-top: 90px;}
+    .scrolling .content_block > section{padding-top: 20px;}
     .scroll_normal .dot_navigation .section_lable{ display:none;}
     .head_txt{ display: block;}
+    .header_title{ top:25%;}
 }
 
 /* Animations */

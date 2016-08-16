@@ -100,9 +100,9 @@ $(document).ready(function(){
     });        
     
     // Min-height for sections
-    $("section").css("min-height", $(window).innerHeight()-70);
+    $("section").css("min-height", $(window).innerHeight());
     $(window).resize(function(){
-        $("section").css("min-height", $(window).innerHeight()-70);    
+        $("section").css("min-height", $(window).innerHeight());    
     });
     
     // scroll spy js        
@@ -145,7 +145,7 @@ $(document).ready(function(){
         cur = cur[cur.length-1];
         var id = cur && cur.length ? cur[0].id : "";
         if (lastId !== id) {
-            lastId = id;
+            lastId = id;          
             // Set/remove active class
             menuItems
                 .parent().removeClass("active")
