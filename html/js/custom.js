@@ -45,11 +45,10 @@ $win.on('scroll', function () {
 			});
 		}
     });
-
 }).scroll();
 })
 
-$(document).ready(function(){    
+$(document).ready(function(){
     var fromTop = $(this).scrollTop();
     if (fromTop === 0) {
         $("body").addClass("scroll_normal");
@@ -80,25 +79,6 @@ $(document).ready(function(){
         e.preventDefault();
     });
     
-    //smooth scroll js
-    $(".dot_navigation li a").on('click', function(event) {               
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-            // Prevent default anchor click behavior
-            event.preventDefault();
-            // Store hash
-            var hash = this.hash;
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 800, function(){
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-            });
-        } // End if
-    });        
-    
     // Min-height for sections
     $("section").css("min-height", $(window).innerHeight());
     $(window).resize(function(){
@@ -118,10 +98,28 @@ $(document).ready(function(){
             var item = $($(this).attr("href"));
             if (item.length) { return item; }
         });
-    // Bind click handler to menu items
-    // so we can get a fancy scroll animation
-    menuItems.click(function(e){
-        var href = $(this).attr("href"),
+    
+    // Next section
+    var cutoff = $(window).scrollTop();
+    var currentsection=0;
+    var str=window.location.hash.substr(1);
+    if(str.split("scrollto")[1]!='_top'&&str.split("scrollto")[1]!=undefined)
+    {
+        //console.log(str.split("scrollto")[1]);
+        currentsection=parseInt(str.split("scrollto")[1]);
+    }
+    var downArrow=$(".scroll_down > a");
+    downArrow.click(function(e){
+        if(currentsection<menuItems.length)
+        {
+            currentsection++;
+        }
+        if(currentsection>=menuItems.length-1)
+        {
+            $(this).hide();
+        }
+        
+        var href =$(menuItems[currentsection]).attr("href") ,
             offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
         $('html, body').stop().animate({ 
             scrollTop: offsetTop
@@ -132,6 +130,31 @@ $(document).ready(function(){
         lastClickedItem = href;
         e.preventDefault();
     });
+    
+    // Bind click handler to menu items
+    // so we can get a fancy scroll animation
+    menuItems.click(function(e){
+        currentsection=$(this).attr('data-a');
+        if(currentsection<menuItems.length-1)
+        {
+            $(downArrow).show();
+        }
+        else
+        {
+            $(downArrow).hide();
+        }
+        var href = $(this).attr("href"),
+            offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+        $('html, body').stop().animate({ 
+            scrollTop: offsetTop
+        }, 300);
+        if(lastClickedItem)
+            $(lastClickedItem).removeClass("animate");
+        $(href).addClass("animate");
+        lastClickedItem = href;
+        //e.preventDefault();
+    });
+    
     // Bind to scroll
     $(window).scroll(function(){
         // Get container scroll position
@@ -156,4 +179,20 @@ $(document).ready(function(){
             lastClickedItem = '#'+id;
         }                   
     });
+
+    var header_height = $('.header').height();
+    var scroll_offset = header_height;
+    var speed = $('body').attr('data-speed');
+    $(window).bind('scroll');
+    //for smooth scrolling to hash when page loaded, but this is not working as the browser default behaviour could not be stopped from here.
+    if (window.location.hash) {
+        $("section").css({"padding-top":"40px"});
+        $(window).scrollTop();
+        setTimeout(function() {
+            $.scrollTo(document.getElementById(window.location.hash.replace('#', '')), Number(speed));
+        }, 1);
+        $(".dot_navigation, .scroll_down").click(function(){
+            $("section.animate").css({"padding-top":"0px"});
+        });
+    }       
 });

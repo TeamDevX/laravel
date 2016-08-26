@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/animate.css"/>
 </head>
-<body data-spy="scroll" data-target=".dot_navigation" data-offset="">
+<body data-spy="scroll" data-target=".dot_navigation" data-offset="" data-speed="500">
     <div class="left_border_width"></div>
     <div class="right_border_width"></div>
     <div class="top_border_width"></div>
@@ -33,43 +33,43 @@
         <!--<div class="menu"><a class="btn btn-primary btn-lg" href="#" role="button">Sign In</a><a class="btn btn-primary btn-lg" href="#" role="button">Join now</a></div>-->
         <ul class="list-unstyled">
             <li class="scroll_item active">
-                <a href="#scrollto_header" class="scroll_link">
+                <a href="#scrollto_top" data-a='0' class="scroll_link">
                     <span class="section_lable">Top</span>
                     <span class="section_lable_dot fa"></span>
                 </a>
             </li>
             <li class="scroll_item">
-                <a href="#scrollto1" class="scroll_link">
+                <a href="#scrollto1" data-a='1' class="scroll_link">
                     <span class="section_lable">Section1</span>
                     <span class="section_lable_dot fa"></span>
                 </a>
             </li>
             <li class="scroll_item">
-                <a href="#scrollto2" class="scroll_link">
+                <a href="#scrollto2" data-a='2' class="scroll_link">
                     <span class="section_lable">Section2</span>
                     <span class="section_lable_dot fa"></span>
                 </a>
             </li>
             <li class="scroll_item">
-                <a href="#scrollto3" class="scroll_link">
+                <a href="#scrollto3" data-a='3' class="scroll_link">
                     <span class="section_lable">Section3</span>
                     <span class="section_lable_dot fa"></span>
                 </a>
             </li>
             <li class="scroll_item">
-                <a href="#scrollto4" class="scroll_link">
+                <a href="#scrollto4" data-a='4' class="scroll_link">
                     <span class="section_lable">Section4</span>
                     <span class="section_lable_dot fa"></span>
                 </a>
             </li>
             <li class="scroll_item">
-                <a href="#scrollto5" class="scroll_link">
+                <a href="#scrollto5" data-a='5' class="scroll_link">
                     <span class="section_lable">Section5</span>
                     <span class="section_lable_dot fa"></span>
                 </a>
             </li>
             <li class="scroll_item">
-                <a href="#scrollto6" class="scroll_link">
+                <a href="#scrollto6" data-a='6' class="scroll_link">
                     <span class="section_lable">Section6</span>
                     <span class="section_lable_dot fa"></span>
                 </a>
@@ -85,7 +85,7 @@
                 <a class="btn btn-primary btn-lg" href="#" role="button">Sign In</a><a class="btn btn-primary btn-lg" href="#" role="button">Join now</a>
             </div>
         </header>
-        <section class="header_section bg_change" id="scrollto_header" itemscope itemtype="http://schema.org/WebPage">
+        <section class="header_section bg_change" id="scrollto_top" itemscope itemtype="http://schema.org/WebPage">
             <div class="header_title col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center">
                 <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
             </div>
@@ -242,7 +242,7 @@
             </div>
         </section>
             <!-- Footer -->
-        <!--<div class="scroll_down"><a href="#"><i class="fa fa-angle-down bounce" aria-hidden="true"></i></a></div>-->
+        <div class="scroll_down"><a href=""><i class="fa fa-angle-down bounce" aria-hidden="true"></i></a></div>
 <footer class="footer">
         <div class="footer_links" itemscope itemtype="http://schema.org/Organization">
             <ul class="list-unstyled">
@@ -260,6 +260,40 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+
+<script type="text/javascript" src="localscroll/js/jquery.scrollTo.min.js"></script>
+	<script type="text/javascript" src="localscroll/jquery.localScroll.js"></script>
+	<script type="text/javascript">
+		$(function( $ ){
+			/**
+			 * Most jQuery.localScroll's settings, actually belong to jQuery.ScrollTo, check it's demo for an example of each option.
+			 * @see http://demos.flesler.com/jquery/scrollTo/
+			 * You can use EVERY single setting of jQuery.ScrollTo, in the settings hash you send to jQuery.localScroll.
+			 */
+			
+			// The default axis is 'y', but in this demo, I want to scroll both
+			// You can modify any default like this
+			$.localScroll.defaults.axis = 'xy';
+			
+			/**
+			 * NOTE: I use $.localScroll instead of $('#navigation').localScroll() so I
+			 * also affect the >> and << links. I want every link in the page to scroll.
+			 */
+			$.localScroll({
+				target: 'section', // could be a selector or a jQuery object too.
+				queue:true,
+				duration:1000,
+				hash:true,
+				onBefore:function( e, anchor, $target ){
+					// The 'this' is the settings object, can be modified
+				},
+				onAfter:function( anchor, settings ){
+					// The 'this' contains the scrolled element (#content)
+				}
+			});
+		});
+	</script>
+    
 </body>
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TTLJD9"

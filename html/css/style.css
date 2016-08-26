@@ -79,6 +79,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .section5{ background: rgba(193,193,193,0.4);}
 .section6{ background: rgba(193,193,193,0.5);}
 
+
 /* Pricing */
 .pricing_block{ margin-top:30px; margin-bottom: 30px;}
 .pricing_single_block{ background: rgba(0,0,0,0.1); min-height: 350px; margin-bottom: 30px; padding:0 15px 15px; border: 1px solid #ccc; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; transition-property: background; transition-duration: 0.7s;   transition-timing-function: linear; }
@@ -105,9 +106,10 @@ img { border: 0px none; max-width: 100%; height: auto;}
 .scrolling .footer{ display: block;  -webkit-animation: slideInUp 1s; -moz-animation: slideInUp 1s; -ms-animation: slideInUp 1s; -o-animation: slideInUp 1s; animation: slideInUp 1s;}
 
 /* Scroll down arrow css */
-.scroll_down{ text-align: center; font-size: 26px; position: fixed; bottom: 35px; left: 0; width: 100%;}
+.scroll_down{ text-align: center; font-size: 26px; position: fixed; bottom: -10px; z-index: 2; left: 0; right: 0; width: 35px; height: 50px; margin: 0 auto;}
 .scroll_down a{ display: inline-block;}
 .scroll_down i{ font-size: 50px; line-height: 40px; display: block;}
+.scroll_normal .scroll_down{display: block !important;}
 
 /* Responsive css starts */
 @media(min-width:768px) and (max-width:1200px){
@@ -150,6 +152,7 @@ img { border: 0px none; max-width: 100%; height: auto;}
     .header .logo{ margin-left: 10px;}
     .header .head_txt{ margin-right: 10px;}  
     .dot_navigation .section_lable, .dot_navigation:hover .section_lable{ display: none !important;}
+    .scroll_down{ bottom: -10px; z-index: 2;}
 }
 @media(min-width:481px) and (max-width:767px){
     .footer{ position: absolute; bottom:45px;}
